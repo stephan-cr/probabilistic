@@ -1,7 +1,7 @@
-import bitset
+from . import bitset
 
 class BloomFilter(object):
-    multipliers = [3, 5, 7, 11]
+    multipliers = (3, 5, 7, 11)
 
     def __init__(self, bits=16):
         self.bits = bits
@@ -15,6 +15,8 @@ class BloomFilter(object):
             self.bitset.setbit(bit)
 
         self.count += 1
+
+    __iadd__ = add
 
     def __contains__(self, value):
         hash_value = hash(value)

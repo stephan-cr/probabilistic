@@ -1,4 +1,4 @@
-import bitset
+from . import bitset
 import math
 
 class LinearCounter(object):

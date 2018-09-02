@@ -23,6 +23,8 @@ class CountMinSketch(object):
             self.estimators[i, self.hash(value_hash, i)] += 1
         self.count += 1
 
+    __iadd__ = add
+
     def add_list(self, values):
         for value in values:
             self.add(value)
