@@ -1,7 +1,7 @@
 from . import bitset
 import math
 
-class LinearCounter(object):
+class LinearCounter:
     '''
     probabilistically count the number of distinct values
     '''
@@ -25,8 +25,8 @@ class LinearCounter(object):
         estimate the number of distinct values seen so far
         '''
 
-        card = -self.bits * math.log((self.bits - self.bitset.count_set_bits()) \
-                                         / float(self.bits))
+        card = -self.bits * math.log((self.bits - self.bitset.count_set_bits())
+                                     / float(self.bits))
         return int(round(card))
 
     def estimate_bias(self):
