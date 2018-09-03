@@ -2,7 +2,7 @@ import numpy
 import numpy.random
 
 # http://highlyscalable.wordpress.com/2012/05/01/probabilistic-structures-web-analytics-data-mining/
-class CountMinSketch(object):
+class CountMinSketch:
     def __init__(self):
         self.count = 0
         self.d = 23
@@ -19,7 +19,7 @@ class CountMinSketch(object):
 
     def add(self, value):
         value_hash = hash(value)
-        for i in xrange(self.d):
+        for i in range(self.d):
             self.estimators[i, self.hash(value_hash, i)] += 1
         self.count += 1
 
@@ -34,7 +34,7 @@ class CountMinSketch(object):
     def estimate_frequency(self, value):
         estimates = []
         value_hash = hash(value)
-        for i in xrange(self.d):
+        for i in range(self.d):
             estimates.append(self.estimators[i, self.hash(value_hash, i)])
 
         return min(estimates)
@@ -50,7 +50,7 @@ class CountMeanMinSketch(CountMinSketch):
         value_hash = hash(value)
         estimates = numpy.empty((self.d,), float)
         estimates.fill(0.0)
-        for i in xrange(self.d):
+        for i in range(self.d):
             sketch_counter = self.estimators[i, self.hash(value_hash, i)]
             noise_estimation = (self.count - sketch_counter) / float(self.w - 1.0)
             estimates[i] = sketch_counter - noise_estimation

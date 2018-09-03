@@ -1,6 +1,6 @@
 from . import bitset
 
-class BloomFilter(object):
+class BloomFilter:
     multipliers = (3, 5, 7, 11)
 
     def __init__(self, bits=16):

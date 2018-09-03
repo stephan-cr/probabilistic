@@ -4,7 +4,7 @@ def required_bytes(bits):
 def byte_and_offset(bit):
     return (bit // 8, bit % 8)
 
-class BitSet(object):
+class BitSet:
     def __init__(self, bits):
         self.bits = bits
         self.bytes = required_bytes(bits)
@@ -25,6 +25,9 @@ class BitSet(object):
         if bit < 0 or bit >= self.bits:
             raise IndexError('bit set out of range')
 
+        if value not in (0, 1):
+            raise ValueError('value must be 0 or 1')
+
         byte, offset = byte_and_offset(bit)
 
         if value > 0:
@@ -40,7 +43,7 @@ class BitSet(object):
 
     def count_set_bits(self):
         count = 0
-        for bit in xrange(self.bits):
+        for bit in range(self.bits):
             count += self[bit]
 
         return count
