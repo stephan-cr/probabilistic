@@ -28,9 +28,3 @@ class BloomFilter(object):
                 return False
 
         return True
-
-if __name__ == '__main__':
-    bf = BloomFilter(1024)
-    bf.add(23)
-    print (24 in bf)
-    print (23 in bf)
