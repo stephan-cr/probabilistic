@@ -16,6 +16,8 @@ class BloomFilter(object):
 
         self.count += 1
 
+        return self
+
     __iadd__ = add
 
     def __contains__(self, value):
