@@ -20,3 +20,7 @@ def test_count_bits_set():
     bs[5] = 1
 
     nt.assert_equal(2, bs.count_set_bits())
+
+    bs[0] = 0
+
+    nt.assert_equal(1, bs.count_set_bits())
