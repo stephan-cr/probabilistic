@@ -3,9 +3,11 @@ Probabilistic
 
 A Python module with probabilistic data structures.
 
+Note: This module is far from finished.
+
 How to install
 --------------
 
 .. code:: shell
 
-   pip install -e hg+https://bitbucket.org/stephan_cr/probabilistic#egg=probabilistic
+   pip install -e git+https://github.com/stephan-cr/probabilistic#egg=probabilistic
